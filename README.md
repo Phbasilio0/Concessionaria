@@ -1,86 +1,115 @@
-#Concessionária – Sistema de Gerenciamento
+Concessionária – Sistema de Gerenciamento
 
-Um projeto completo de Engenharia de Software, estruturado em camadas (MVC) e desenvolvido em Java.
+Este projeto foi desenvolvido com o objetivo de gerenciar as operações de uma concessionária de veículos.
+O sistema permite controlar clientes, veículos, vendas, financiamentos, test drives e oferece uma interface simples via console.
 
-Visão Geral
+É um projeto pensado para demonstrar boas práticas de Engenharia de Software, incluindo modelagem, arquitetura MVC, documentação e organização do código.
 
-Este sistema tem como objetivo gerenciar todas as operações de uma concessionária de veículos, oferecendo funcionalidades para:
+Arquitetura do Sistema
 
-Cadastro e gerenciamento de Clientes
+O projeto segue o padrão MVC (Model–View–Controller):
 
-Administração de Veículos (carros e motos)
+Model: Representa as entidades e regras de negócio
 
-Registro e controle de Vendas
+View: Interação com o usuário via console
 
-Controle de Financiamentos
+Controller: Processa entradas, coordena lógica e chama os Models
 
-Agendamento e gerenciamento de Test Drives
+Estrutura:
 
-O foco principal é simular um ambiente real de uma concessionária, utilizando boas práticas de programação orientada a objetos, organização modular e princípios de engenharia de software.
-
-Arquitetura e Modelagem
-
-O projeto segue uma arquitetura baseada em MVC (Model–View–Controller), promovendo separação de responsabilidades e facilidade de manutenção.
-
-Relações Entre Classes
-
-- Agregação
-
-A classe Cliente mantém um histórico de vendas.
-
-O cliente existe sem a venda, mas a venda sempre referencia um cliente.
-
-- Composição
-
-A classe Venda é composta por Cliente, Vendedor e Veículo.
-
-A venda não existe sem esses elementos.
-
-- Associação
-
-A classe Financiamento está associada diretamente a uma Venda,
-indicando dependência direta entre ambas.
-
- Estrutura do Projeto
 src/
- ├── Model/          # Classes de domínio (Cliente, Veículo, Venda, etc.)
- ├── Controller/     # Lógica de controle e regras de negócio
- ├── View/           # Interface textual com o usuário
- ├── Interface/      # Interfaces utilizadas no sistema
- └── Util/           # Utilidades e classes auxiliares
- Como Executar o Projeto
+ ├── Controller/
+ ├── Interface/
+ ├── Model/
+ ├── Util/
+ └── View/
+Requisitos Funcionais
+
+RF01 — Gerenciar Clientes
+O sistema deve permitir cadastrar, consultar, atualizar e listar clientes.
+
+RF02 — Gerenciar Veículos
+O sistema deve registrar carros e motos, além de listar e consultar detalhes.
+
+RF03 — Registrar Vendas
+O sistema deve permitir registrar uma venda com cliente, veículo e vendedor.
+
+RF04 — Histórico de Vendas do Cliente
+O sistema deve apresentar todas as vendas feitas a um cliente.
+
+RF05 — Test Drives
+O sistema deve agendar e consultar test drives.
+
+RF06 — Gerenciar Financiamentos
+O sistema deve registrar um financiamento associado a uma venda.
+
+RF07 — Menu principal navegável
+O sistema deve apresentar um menu com as opções disponíveis.
+
+Requisitos Não Funcionais
+
+RNF01 — Linguagem: Java
+RNF02 — Interface: Console (CLI)
+RNF03 — Arquitetura: MVC
+RNF04 — Persistência em memória (sem banco de dados)
+RNF05 — Código legível e orientado a objetos
+
+Casos de Uso
+Caso de Uso 01 — Cadastrar Cliente
+
+Ator: Atendente
+Fluxo: Inserir nome, CPF, telefone → Cliente é criado e armazenado
+Pré-condição: CPF válido
+Pós-condição: Cliente fica disponível para vendas e test drives
+
+Caso de Uso 02 — Registrar Venda
+
+Ator: Vendedor
+Fluxo: Selecionar cliente → Veículo → Registrar pagamento → Finalizar
+Pós-condição: Venda associada ao cliente e veículo marcado como vendido
+
+Caso de Uso 03 — Agendar Test Drive
+
+Ator: Cliente
+Fluxo: Informar cliente + veículo + data
+Pós-condição: Test drive registrado no sistema
+
+Diagrama de Classes (UML)
+
+<img width="1274" height="1274" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/e7bc5772-0241-4ded-a73d-54045aaa7448" />
+
+
+Relacionamentos Entre Classes
+
+Agregação: Cliente → Venda (um cliente pode ter várias vendas)
+
+Composição: Venda depende de Cliente + Veículo + Vendedor
+
+Associação: Financiamento → Venda
+
+Como Executar o Projeto
 
 Clone o repositório:
 
-git clone https://github.com/Phbasilio0/Concessionaria.git
+git clone https://github.com/SEU-USUARIO/Concessionaria.git
 
-Acesse o diretório do projeto:
+Entre no diretório:
 
 cd Concessionaria
 
-Compile o projeto:
+Compile:
 
 javac src/**/*.java
 
-Execute a aplicação (classe principal):
+Execute a classe main (exemplo):
 
-java src/View/MenuPrincipal
+java src.View.MenuPrincipal
+Tecnologias Utilizadas
 
-Interaja com o sistema pelo console.
+Java
 
-Habilidades Demonstradas
+Paradigma Orientado a Objetos
 
-Este projeto evidencia competências importantes de um Engenheiro de Software:
+Padrão MVC
 
-Programação Orientada a Objetos (POO)
-
-Modelagem UML (agregação, composição e associação)
-
-Arquitetura MVC
-
-Boas práticas de organização de código
-
-Manipulação de dados em estruturas de classes
-
-Simulação de regras de negócio reais
-
+UML (documentação)
