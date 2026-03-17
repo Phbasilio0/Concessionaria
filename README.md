@@ -1,29 +1,86 @@
-# Concessionaria
+#Concessionária – Sistema de Gerenciamento
 
-**Informações Gerais**
+Um projeto completo de Engenharia de Software, estruturado em camadas (MVC) e desenvolvido em Java.
 
-Este projeto tem o objetivo de gerenciar uma concessionária de veículos. O objetivo principal é facilitar o gerenciamento de Clientes, Veiculos, Venda, Financiamento de Carros e Motos, e de gerenciar uma agenda de Test Drives.
+Visão Geral
 
-**Relações entre as Classes**
+Este sistema tem como objetivo gerenciar todas as operações de uma concessionária de veículos, oferecendo funcionalidades para:
 
-**Agregação:** A classe Cliente possui um histórico de Venda, indicando que um cliente pode ter múltiplas vendas, mas as vendas não existem sem um cliente.
+Cadastro e gerenciamento de Clientes
 
-**Composição:** A classe Venda é composta por um Cliente, um Vendedor e um Veiculo, significando que uma venda não faz sentido sem esses elementos.
+Administração de Veículos (carros e motos)
 
-**Associação:** A classe Financiamento está associada a uma Venda, indicando que um financiamento é sempre relacionado a uma venda específica.
+Registro e controle de Vendas
 
-**Como Executar o Projeto**
+Controle de Financiamentos
 
-Para executar o projeto, siga as instruções abaixo:
+Agendamento e gerenciamento de Test Drives
 
-1- Clone o Repositorio
+O foco principal é simular um ambiente real de uma concessionária, utilizando boas práticas de programação orientada a objetos, organização modular e princípios de engenharia de software.
 
-2- Navegue ao diretorio do Projeto
+Arquitetura e Modelagem
 
-3-Compile o Projeto
+O projeto segue uma arquitetura baseada em MVC (Model–View–Controller), promovendo separação de responsabilidades e facilidade de manutenção.
 
-4-Execute o Projeto por meio da classe Menu Principal(main)
+Relações Entre Classes
 
-5-Siga as instruções no console para interagir com o sistema.
+- Agregação
 
+A classe Cliente mantém um histórico de vendas.
+
+O cliente existe sem a venda, mas a venda sempre referencia um cliente.
+
+- Composição
+
+A classe Venda é composta por Cliente, Vendedor e Veículo.
+
+A venda não existe sem esses elementos.
+
+- Associação
+
+A classe Financiamento está associada diretamente a uma Venda,
+indicando dependência direta entre ambas.
+
+ Estrutura do Projeto
+src/
+ ├── Model/          # Classes de domínio (Cliente, Veículo, Venda, etc.)
+ ├── Controller/     # Lógica de controle e regras de negócio
+ ├── View/           # Interface textual com o usuário
+ ├── Interface/      # Interfaces utilizadas no sistema
+ └── Util/           # Utilidades e classes auxiliares
+ Como Executar o Projeto
+
+Clone o repositório:
+
+git clone https://github.com/Phbasilio0/Concessionaria.git
+
+Acesse o diretório do projeto:
+
+cd Concessionaria
+
+Compile o projeto:
+
+javac src/**/*.java
+
+Execute a aplicação (classe principal):
+
+java src/View/MenuPrincipal
+
+Interaja com o sistema pelo console.
+
+Habilidades Demonstradas
+
+Este projeto evidencia competências importantes de um Engenheiro de Software:
+
+Programação Orientada a Objetos (POO)
+
+Modelagem UML (agregação, composição e associação)
+
+Arquitetura MVC
+
+Boas práticas de organização de código
+
+Manipulação de dados em estruturas de classes
+
+Simulação de regras de negócio reais
 
